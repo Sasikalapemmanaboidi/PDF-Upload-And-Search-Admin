@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ document.title }}</title>
+     <style>
+    .highlight {
+        background-color: red;
+        color: white;
+        font-weight: bold;
+        padding: 0 2px;
+        border-radius: 2px;
+    }
+</style>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container my-4">
+
+    <!-- DOCUMENT TITLE -->
+    <div class="mb-4">
+        <h2 class="fw-bold text-primary">{{ document.title }}</h2>
+    </div>
+
+    <!-- SEARCH BAR -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <form method="get" class="row g-2 align-items-center">
+                <div class="col-md-10">
+                    <input
+                        type="text"
+                        name="q"
+                        class="form-control"
+                        placeholder="Search text in PDF..."
+                        value="{{ query }}">
+                </div>
+                <div class="col-md-2 d-grid">
+                    <button type="submit" class="btn btn-primary">
+                        Search
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- SEARCH RESULTS -->
+    {% if query %}
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header bg-secondary text-white">
+                Search Results for "{{ query }}"
+            </div>
+            <div class="card-body">
+                {% if search_results %}
+                    <ul class="list-group">
+                        {% for result in search_results %}
+                            <li class="list-group-item">
+                                <a class="text-decoration-none"
+                                   href="?page={{ result.page_number }}&q={{ query }}">
+                                     Found on Page {{ result.page_number }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="text-muted mb-0">No matches found.</p>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+
+    <!-- CURRENT PAGE -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-primary text-white">
+            Page {{ page_obj.object_list.0.page_number }}
+        </div>
+        <div class="card-body">
+          <pre id="pdfText" class="mb-0" style="white-space: pre-wrap; font-size: 14px;">
+              {{ page_obj.object_list.0.text }}
+          </pre>
+
+        </div>
+    </div>
+
+    <!-- PAGINATION -->
+    <div class="d-flex justify-content-between">
+        {% if page_obj.has_previous %}
+            <a class="btn btn-outline-primary"
+               href="?page={{ page_obj.previous_page_number }}{% if query %}&q={{ query }}{% endif %}">
+                 Previous
+            </a>
+        {% else %}
+            <span></span>
+        {% endif %}
+
+        {% if page_obj.has_next %}
+            <a class="btn btn-outline-primary"
+               href="?page={{ page_obj.next_page_number }}{% if query %}&q={{ query }}{% endif %}">
+                Next →
+            </a>
+        {% endif %}
+    </div>
+
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    const searchWord = getQueryParam("q");
+
+    if (searchWord) {
+        const pdfTextElement = document.getElementById("pdfText");
+        let text = pdfTextElement.innerHTML;
+
+        const regex = new RegExp(searchWord, "gi");
+        text = text.replace(regex, match =>
+            `<span class="highlight">${match}</span>`
+        );
+
+        pdfTextElement.innerHTML = text;
+    }
+</script>
+
+</body>
+</html>
