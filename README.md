@@ -126,10 +126,7 @@ python manage.py runserver
 This system provides a robust, scalable, and user-friendly solution for PDF text extraction and searching. By combining Django’s ORM, PyMuPDF’s extraction capabilities, and a clean UI, the application meets all functional requirements while remaining easy to extend with features such as full-text search, PDF previews, or role-based access.
 
 <img width="718" height="441" alt="image" src="https://github.com/user-attachments/assets/881ad4a5-2b0c-4013-8a3b-09194e3995f5" />
-
-
-<img width="664" height="337" alt="image" src="<img width="1136" height="591" alt="image" src="https://github.com/user-attachments/assets/3602f89b-90e7-4b7c-aba6-ac645ec10d6d" />
-" />
+<img width="664" height="337" alt="image" src="https://github.com/user-attachments/assets/3602f89b-90e7-4b7c-aba6-ac645ec10d6d" />
 <img width="1148" height="623" alt="image" src="https://github.com/user-attachments/assets/ad383600-c425-4b30-9bf6-47c82e3e47a5" />
 <img width="911" height="603" alt="image" src="https://github.com/user-attachments/assets/a6f20867-93f2-4356-aef5-585021595655" />
 
