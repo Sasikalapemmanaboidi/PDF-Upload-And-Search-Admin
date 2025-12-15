@@ -124,7 +124,7 @@ Start Server
 python manage.py runserver
 12. Conclusion
 This system provides a robust, scalable, and user-friendly solution for PDF text extraction and searching. By combining Django’s ORM, PyMuPDF’s extraction capabilities, and a clean UI, the application meets all functional requirements while remaining easy to extend with features such as full-text search, PDF previews, or role-based access.
-<img width="664" height="337" alt="image" src="<img width="1136" height="591" alt="image" src="https://github-production-user-asset-6210df.s3.amazonaws.com/97533699/526366687-572293bb-5f5a-46ee-bfc1-db7a89c7f20a.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20251215%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251215T021906Z&X-Amz-Expires=300&X-Amz-Signature=f4e6a988e3d929afb92f981b6120a98e8d9a59dd681fed6f888d57db11decee7&X-Amz-SignedHeaders=host"/>
+<img width="664" height="337" alt="image" src="https://github-production-user-asset-6210df.s3.amazonaws.com/97533699/526366687-572293bb-5f5a-46ee-bfc1-db7a89c7f20a.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20251215%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251215T021906Z&X-Amz-Expires=300&X-Amz-Signature=f4e6a988e3d929afb92f981b6120a98e8d9a59dd681fed6f888d57db11decee7&X-Amz-SignedHeaders=host"/>
 <img width="664" height="337" alt="image" src="<img width="1136" height="591" alt="image" src="https://github.com/user-attachments/assets/3602f89b-90e7-4b7c-aba6-ac645ec10d6d" />
 " />
 <img width="1148" height="623" alt="image" src="https://github.com/user-attachments/assets/ad383600-c425-4b30-9bf6-47c82e3e47a5" />
